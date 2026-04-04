@@ -28,9 +28,10 @@ It works by patching the game's assembly at runtime.
 - DLL uses [hook into the game console](execute_hook.cpp) to call a [script](ppmm_stats_effect.sc) that increases exhaustion stat.
 
 All characters share the same movement system, so changes apply globally.
-The file structure must be as follows:
 
 ## Installation
+
+The file structure must be as follows:
 
     Pathologic Classic HD/
     │
@@ -74,15 +75,15 @@ Example:
 
 **Debug**
 
-* Description - 1 to enable debug information (only for testing purposes), 0 to disable  
-* Type - boolean  
-* Default value - 0  
+* Description - 1 to enable debug information (only for testing purposes), 0 to disable
+* Type - boolean
+* Default value - 0
 
 **TirednessEffect**
 
-* Description - Enables exhaustion gain while sprinting. When enabled, sprinting will gradually increase player exhaustion.  
-* Type - boolean  
-* Default value - 0  
+* Description - Enables exhaustion gain while sprinting. When enabled, sprinting will gradually increase player exhaustion.
+* Type - boolean
+* Default value - 1
 
 ---
 
@@ -90,24 +91,24 @@ Example:
 
 **MoveSpeedMultiplier**
 
-* Description - Controls player movement speed. Lower values make the player run faster.  
-* Type - float  
-* Default value - 1.0  
+* Description - Controls player movement speed. Lower values make the player run faster.
+* Type - float
+* Default value - 1.0
 
 **JumpHeight**
 
 * Description - Controls the height of jumps. Higher values make the player jump higher.  
-* Type - float  
-* Default value - 1.0  
+* Type - float
+* Default value - 1.0
 
 **JumpLandingGravity**
 
-* Description - Controls how fast the player falls after a jump. Higher values make the player "lighter" and fall slower. Constant also affects fall damage and collisions with obstacles. Setting it to 0 will prevent the player from falling after a jump.  
-* Type - integer  
-* Default value - 2500  
+* Description - Controls how fast the player falls after a jump. Higher values make the player "lighter" and fall slower. Constant also affects fall damage and collisions with obstacles. Setting it to 0 will prevent the player from falling after a jump.
+* Type - integer
+* Default value - 2500
 
 **TirednessDelta**
 
-* Description - Controls how quickly exhaustion increases during sprint. Higher values result in faster exhaustion buildup.  
-* Type - integer  
-* Default value - 30  
+* Description - Controls how quickly exhaustion increases during sprint. Higher values result in faster exhaustion buildup.
+* Type - integer
+* Default value - 30
