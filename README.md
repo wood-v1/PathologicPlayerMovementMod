@@ -2,9 +2,11 @@
 
 ## Overview
 
-The mod adds configurable sprint and movement tweaks to Pathologic Classic HD.
+The mod adds configurable sprint and movement tweaks to Pathologic Classic HD
 
-The mod is a DLL, injected into main game's process `Game.exe` and runs through a separate launcher [PPMMLauncher](https://github.com/wood-v1/PathologicPlayerMovementModLauncher).
+The mod is a DLL, and can be launched in several ways:
+1. Through a separate launcher [PPMMLauncher](https://github.com/wood-v1/PathologicPlayerMovementModLauncher)
+2. Through an [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader) (installation instructions below)
 
 ## Core Features
 
@@ -29,7 +31,9 @@ It works by patching the game's assembly at runtime.
 
 All characters share the same movement system, so changes apply globally.
 
-## Installation
+## Installation 
+
+### Installation via PPMLauncher
 
 The file structure must be as follows:
 
@@ -42,6 +46,29 @@ The file structure must be as follows:
     │       ├─ PPMM.dll - `Core mod library`
     │       ├─ PPMM.ini - `Configuration file`
     │       └─ PPMMLauncher.exe - `Injector used to launch the game and inject PPMM.dll at startup`
+    │
+    ├─ data/
+    │   └─ Scripts/
+    │   │   └─ ppmm_stats_effect.bin - `used to implement Tiredness Effect`
+    │   └─ init.cfg - `used to reassign the crouch key from LSHIFT to Left CTRL`
+
+### Installation via Ultimate-ASI-Loader
+
+- Download `dinput8.dll` from [Ultimate-ASI-Loader repository](https://github.com/ThirteenAG/Ultimate-ASI-Loader)
+- Rename PPMM.dll to PPMM.asi and place it with `dinput8.dll` in the bin/Final/ folder
+
+
+The file structure must be as follows:
+
+    Pathologic Classic HD/
+    │
+    ├─ bin/
+    │   └─ Final/
+    │       ├─ Game.exe - `With this configuration, simply run it to start the modded game`
+    │       ├─ ...
+    │       ├─ PPMM.asi - `Core mod library`
+    │       ├─ PPMM.ini - `Configuration file`
+    │       └─ dinput8.dll - `ASI Loader used to load the PPMM.asi at startup`
     │
     ├─ data/
     │   └─ Scripts/
@@ -91,7 +118,7 @@ Example:
 
 **MoveSpeedMultiplier**
 
-* Description - Controls player movement speed. Lower values make the player run faster.
+* Description - Controls player movement speed. Lower values make the player run faster. In more detail, it's essentially a multiplier of the friction factor, so the smaller this force, the faster the character moves.
 * Type - float
 * Default value - 1.0
 
