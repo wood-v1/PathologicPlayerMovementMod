@@ -26,7 +26,7 @@ The mod is a DLL, and can be launched in several ways:
 
 It works by patching the game's assembly at runtime.
 
-The mod uses the *code caves* technique to inject hooks into the `Game.exe` process, targeting movement-related code inside [`Engine.dll`](Engine_dll_asm.txt). It identifies instruction blocks responsible for movement multipliers and patches them, redirecting execution to injector code (see [`hook.cpp`](hook.cpp)).
+The mod uses the *code caves* technique to inject hooks into the `Game.exe` process, targeting movement-related code inside [`Engine.dll`](Engine_dll_asm.txt). It identifies instruction blocks responsible for movement multipliers and patches them, redirecting execution to custom code (see [`hook.cpp`](hook.cpp)).
 
 This custom code operates on pointers to multiplier variables, which are dynamically updated based on `Shift` / `Caps Lock` input.
 
