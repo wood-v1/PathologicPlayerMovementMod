@@ -26,8 +26,11 @@ The mod is a DLL, and can be launched in several ways:
 
 It works by patching the game's assembly at runtime.
 
-- DLL uses [code caves to modify movement](hook.cpp) at runtime inside `Engine.dll` (for reference see [Engine_dll_asm.txt](Engine_dll_asm.txt))
-- DLL uses [hook into the game console](execute_hook.cpp) to call a [script](ppmm_stats_effect.sc) that increases exhaustion stat.
+The mod uses the *code caves* technique to inject hooks into the `Game.exe` process, targeting movement-related code inside [`Engine.dll`](Engine_dll_asm.txt). It identifies instruction blocks responsible for movement multipliers and patches them, redirecting execution to injector code (see [`hook.cpp`](hook.cpp)).
+
+This custom code operates on pointers to multiplier variables, which are dynamically updated based on `Shift` / `Caps Lock` input.
+
+For the Tiredness Effect, the mod hooks into the in-game console (see [`execute_hook.cpp`](execute_hook.cpp)) to execute a script ([`ppmm_stats_effect.sc`](ppmm_stats_effect.sc)). The script handles game logic (that is too complex to implement purely in the injector) - detecting player movement and updating the exhaustion stat.
 
 All characters share the same movement system, so changes apply globally.
 
